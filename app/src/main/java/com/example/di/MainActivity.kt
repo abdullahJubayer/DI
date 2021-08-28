@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mainActivityViewModel: MainActivityViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -15,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         val remoteDataSource=RemoteDataSource();
         val localDataSource=LocalDataSource()
         val mainActivityRepo=MainActivityRepo(localDataSource,remoteDataSource)
-        val viewModel= ViewModelProvider(this)[MainActivityViewModel::class.java]
+        mainActivityViewModel= MainActivityViewModel(mainActivityRepo)
+
+        //Dependency Injection Container
+        mainActivityViewModel= MainActivityViewModel((application as Application).appContainer.mainActivityRepo)
     }
 }
