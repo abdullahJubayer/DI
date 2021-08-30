@@ -22,5 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         //Dependency Injection Container
         mainActivityViewModel= MainActivityViewModel((application as Application).appContainer.mainActivityRepo)
+
+        //factory method to create new instance when you want
+        mainActivityViewModel=(application as Application).appContainer.mainActivityViewModel.create()
     }
 }
