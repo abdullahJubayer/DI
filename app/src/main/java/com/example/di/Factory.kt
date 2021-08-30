@@ -10,3 +10,9 @@ class MainActivityViewModelFactory(private val mainActivityRepo: MainActivityRep
     }
 
 }
+class LoginViewModelFactory(private val mainActivityRepo: MainActivityRepo) : Factory<LoginViewModel> {
+    override fun create(): LoginViewModel {
+        return LoginViewModel(mainActivityRepo)
+    }
+
+}

@@ -1,7 +1,7 @@
 package com.example.di
 
-class MainActivityContainer(mainActivityRepo: MainActivityRepo){
-    val mainActivityViewModel=MainActivityViewModelFactory(mainActivityRepo)
+class LoginContainer(mainActivityRepo: MainActivityRepo){
+    val loginViewModel=LoginViewModelFactory(mainActivityRepo)
 }
 
 class AppContainer {
@@ -10,5 +10,5 @@ class AppContainer {
     val mainActivityRepo=MainActivityRepo(localDataSource,remoteDataSource)
     val mainActivityViewModel=MainActivityViewModelFactory(mainActivityRepo)
 
-    var mainActivityContainer:MainActivityContainer?=null
+    var loginContainer:LoginContainer?=null
 }

@@ -8,7 +8,7 @@ import androidx.lifecycle.get
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainActivityViewModel: MainActivityViewModel
-    private var mainActivityViewModelFromContainer:MainActivityViewModel?=null
+    private var loginViewModel:LoginViewModel?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,14 +29,14 @@ class MainActivity : AppCompatActivity() {
 
         //so when we need to instance some group of object or we can say a flow property , and want to destroy all object when flow is completed we use this approach in Manual DI
         //Create flow Container
-        (application as Application).appContainer.mainActivityContainer= MainActivityContainer(mainActivityRepo)
-        mainActivityViewModelFromContainer=(application as Application).appContainer.mainActivityContainer?.mainActivityViewModel?.create()
+        (application as Application).appContainer.loginContainer= LoginContainer(mainActivityRepo)
+        loginViewModel=(application as Application).appContainer.loginContainer?.loginViewModel?.create()
     }
 
 
     override fun onDestroy() {
         super.onDestroy()
         //Destroy flow Container
-        (application as Application).appContainer.mainActivityContainer=null
+        (application as Application).appContainer.loginContainer=null
     }
 }
