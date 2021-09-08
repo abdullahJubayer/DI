@@ -1,4 +1,4 @@
-package com.example.dagger
+package com.example.basicDagger
 
 import javax.inject.Inject
 import javax.inject.Singleton
