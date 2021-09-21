@@ -2,7 +2,7 @@ package com.example.androidDagger
 
 import dagger.Component
 
-@Component
+@Component(modules = [RemoteRetrofitModule::class])
 interface ApplicationGraph {
     fun inject(activity: MainActivity)
 }
