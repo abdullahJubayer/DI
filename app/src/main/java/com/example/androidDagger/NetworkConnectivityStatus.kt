@@ -4,6 +4,6 @@ import javax.inject.Inject
 
 class NetworkConnectivityStatus @Inject constructor() {
     fun isNetworkConnected(): Boolean {
-        return false
+        return true
     }
 }

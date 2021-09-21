@@ -16,5 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         Log.e("DEBUG", "Data : ${viewModel.getData()}" )
+        (applicationContext as Application).appComponent.inject(this)
+        Log.e("DEBUG", "Data : ${viewModel.getData()}" )
     }
 }

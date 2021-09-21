@@ -11,8 +11,7 @@ class RemoteRetrofitModule {
     @Provides
     fun getRetrofitService(): NetworkService {
         return Retrofit.Builder()
-            .baseUrl("/Url")
-            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("https://stackoverflow.com/")
             .build()
             .create(NetworkService::class.java)
     }
