@@ -4,14 +4,16 @@ import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 @Module
-class RemoteRetrofitModule {
+class RemoteRetrofitModule @Inject constructor() {
 
     @Provides
     fun getRetrofitService(): NetworkService {
         return Retrofit.Builder()
-            .baseUrl("https://stackoverflow.com/")
+            .baseUrl("https://example.in/")
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(NetworkService::class.java)
     }
