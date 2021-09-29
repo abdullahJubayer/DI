@@ -7,10 +7,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class RemoteLogin @Inject constructor(private val remoteRetrofitModule: RemoteRetrofitModule) {
-    fun login(userLiveData: MutableLiveData<User>): String {
-        remoteRetrofitModule.getRetrofitService().getData(6).enqueue(object : Callback<User>{
+    fun login(userLiveData: MutableLiveData<User>,page:Int): String {
+        remoteRetrofitModule.getRetrofitService().getData(page).enqueue(object : Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 Log.e("TAG", "onSuccess" )
                 userLiveData.value=response.body()

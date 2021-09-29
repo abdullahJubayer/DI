@@ -4,8 +4,8 @@ import com.example.androidDagger.login.LoginActivity
 import dagger.Component
 import javax.inject.Singleton
 
-@Component(modules = [RemoteRetrofitModule::class])
 @Singleton
+@Component(modules = [RemoteRetrofitModule::class])
 interface ApplicationGraph {
     fun inject(activity: MainActivity)
     fun inject(activity: LoginActivity)

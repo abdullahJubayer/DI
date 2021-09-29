@@ -17,8 +17,11 @@ class LoginActivity : AppCompatActivity() {
         (applicationContext as Application).appComponent.inject(this)
         setContentView(R.layout.activity_login)
 
-        viewModel.login().observe(this, Observer {
-            Log.e("TAG", "onCreate: "+it.total )
+        viewModel.login(6).observe(this, Observer {
+            Log.e("TAG", "onCreate: "+it.page )
+        })
+        viewModel.login(5).observe(this, Observer {
+            Log.e("TAG", "onCreate: "+it.page )
         })
     }
 }

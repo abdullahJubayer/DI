@@ -7,8 +7,8 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(private val repository: Repository) {
     private val userLiveData: MutableLiveData<User> = MutableLiveData()
 
-    fun login(): MutableLiveData<User> {
-            repository.login(userLiveData)
+    fun login(page:Int): MutableLiveData<User> {
+            repository.login(userLiveData,page)
         return userLiveData
     }
 }
