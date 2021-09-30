@@ -1,9 +1,10 @@
-package com.example.androidDagger.login
+package com.example.androidDagger.singleton
 
 import androidx.lifecycle.MutableLiveData
 import javax.inject.Inject
+import javax.inject.Singleton
 
-//Hare LoginViewModel not be @Singleton because it's like android view model . so it's lifecycle end when loginActivity finish
+@Singleton
 class LoginViewModel @Inject constructor(private val repository: Repository) {
     private val userLiveData: MutableLiveData<User> = MutableLiveData()
 

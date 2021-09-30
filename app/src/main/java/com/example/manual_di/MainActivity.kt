@@ -1,9 +1,7 @@
-package com.example.di
+package com.example.manual_di
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 
 class MainActivity : AppCompatActivity() {
 

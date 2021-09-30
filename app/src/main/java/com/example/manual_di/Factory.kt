@@ -1,4 +1,4 @@
-package com.example.di
+package com.example.manual_di
 
 interface Factory<T> {
     fun create(): T

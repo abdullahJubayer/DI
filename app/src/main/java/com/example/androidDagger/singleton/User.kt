@@ -1,4 +1,4 @@
-package com.example.androidDagger.login
+package com.example.androidDagger.singleton
 
 import com.google.gson.annotations.Expose
 

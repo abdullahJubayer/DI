@@ -1,4 +1,4 @@
-package com.example.di
+package com.example.manual_di
 
 class LoginContainer(mainActivityRepo: MainActivityRepo){
     val loginViewModel=LoginViewModelFactory(mainActivityRepo)

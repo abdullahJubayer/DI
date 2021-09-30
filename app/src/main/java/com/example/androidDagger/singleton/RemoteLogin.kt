@@ -1,8 +1,7 @@
-package com.example.androidDagger.login
+package com.example.androidDagger.singleton
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.androidDagger.RemoteRetrofitModule
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -11,10 +10,10 @@ import javax.inject.Singleton
 
 @Singleton
 class RemoteLogin @Inject constructor(private val remoteRetrofitModule: RemoteRetrofitModule) {
-    fun login(userLiveData: MutableLiveData<User>,page:Int): String {
-        remoteRetrofitModule.getRetrofitService().getData(page).enqueue(object : Callback<User>{
+    fun login(userLiveData: MutableLiveData<User>,page:Int) {
+        val source=remoteRetrofitModule.getRetrofitService()
+        source.getData(page).enqueue(object : Callback<User>{
             override fun onResponse(call: Call<User>, response: Response<User>) {
-                Log.e("TAG", "onSuccess" )
                 userLiveData.value=response.body()
             }
 
@@ -22,6 +21,5 @@ class RemoteLogin @Inject constructor(private val remoteRetrofitModule: RemoteRe
                 Log.e("TAG", "onFailure: "+t.message )
             }
         })
-        return "Remote Login Success"
     }
 }

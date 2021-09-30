@@ -1,6 +1,6 @@
 package com.example.androidDagger
 
-import com.example.androidDagger.login.User
+import com.example.androidDagger.singleton.User
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

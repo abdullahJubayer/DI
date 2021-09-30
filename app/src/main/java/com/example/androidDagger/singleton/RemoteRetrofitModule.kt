@@ -1,5 +1,6 @@
-package com.example.androidDagger
+package com.example.androidDagger.singleton
 
+import com.example.androidDagger.NetworkService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -9,19 +10,9 @@ import javax.inject.Singleton
 
 @Module
 class RemoteRetrofitModule @Inject constructor() {
-
     @Singleton
     @Provides
     fun getRetrofitService(): NetworkService {
-        return Retrofit.Builder()
-            .baseUrl("https://reqres.in/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(NetworkService::class.java)
-    }
-
-    @Provides
-    fun getRetrofitServiceWithNewInstance(): NetworkService {
         return Retrofit.Builder()
             .baseUrl("https://reqres.in/")
             .addConverterFactory(GsonConverterFactory.create())
