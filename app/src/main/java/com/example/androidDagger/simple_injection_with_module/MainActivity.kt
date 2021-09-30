@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.lifecycle.Observer
 import com.example.androidDagger.Application
 import com.example.androidDagger.singleton.LoginActivity
+import com.example.androidDagger.sub_component.LoginFragmentActivity
 import com.example.manual_di.R
 import kotlinx.android.synthetic.main.activity_main2.*
 import javax.inject.Inject
@@ -32,6 +33,9 @@ class MainActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             startActivity(Intent(this,LoginActivity::class.java))
+        }
+        button2.setOnClickListener {
+            startActivity(Intent(this,LoginFragmentActivity::class.java))
         }
 
     }

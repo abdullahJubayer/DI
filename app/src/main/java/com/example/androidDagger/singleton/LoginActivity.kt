@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         //hare we use @Singleton so whenever we inject a viewModel,everytime the the same viewModel instance will return
         Log.e("TAG2", "Data : ${viewModel.toString()}" )
         (applicationContext as Application).appComponent.inject(this)
-        Log.e("TAG3", "Data : ${viewModel.toString()}" )
+        Log.e("TAG2", "Data : ${viewModel.toString()}" )
 
         viewModel.login(6).observe(this, Observer {
             Log.e("TAG2", "onCreate: "+it.page )
