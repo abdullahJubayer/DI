@@ -8,7 +8,6 @@ import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 class RemoteLogin @Inject constructor(private val remoteRetrofitModule: RemoteRetrofitModule) {
     fun login(userLiveData: MutableLiveData<User>,page:Int) {
         val source=remoteRetrofitModule.getRetrofitService()

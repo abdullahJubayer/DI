@@ -1,5 +1,6 @@
 package com.example.androidDagger.sub_component
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,7 +8,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.manual_di.R
-class RegistrationFragment(private val loginViewModel: LoginViewModel) : Fragment() {
+import javax.inject.Inject
+
+class RegistrationFragment() : Fragment() {
+
+    @Inject lateinit var loginViewModel:LoginViewModel
+
+    override fun onAttach(context: Context) {
+        (activity as LoginFragmentActivity).loginComponent.inject(this)
+        super.onAttach(context)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

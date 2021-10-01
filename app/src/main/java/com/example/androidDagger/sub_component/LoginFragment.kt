@@ -1,5 +1,6 @@
 package com.example.androidDagger.sub_component
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,9 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.manual_di.R
+import javax.inject.Inject
 
-class LoginFragment(private val loginViewModel: LoginViewModel) : Fragment() {
+class LoginFragment() : Fragment() {
 
+    @Inject lateinit var loginViewModel:LoginViewModel
+
+    override fun onAttach(context: Context) {
+        (activity as LoginFragmentActivity).loginComponent.inject(this)
+        super.onAttach(context)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,6 +28,7 @@ class LoginFragment(private val loginViewModel: LoginViewModel) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //hare whenever loginActivity Created a new Instance of view model created
         Log.e("TAG3", "Data : ${loginViewModel.toString()}" )
     }
 }

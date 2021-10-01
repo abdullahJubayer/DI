@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.androidDagger.singleton.User
 import javax.inject.Inject
 
+@ActivityScope
 class LoginViewModel @Inject constructor(private val repository: Repository) {
     private val userLiveData: MutableLiveData<User> = MutableLiveData()
 

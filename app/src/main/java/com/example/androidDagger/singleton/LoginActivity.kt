@@ -16,11 +16,13 @@ class LoginActivity : AppCompatActivity() {
         (applicationContext as Application).appComponent.inject(this)
         setContentView(R.layout.activity_login)
 
-        //hare we use @Singleton so whenever we inject a viewModel,everytime the the same viewModel instance will return
-        Log.e("TAG2", "Data : ${viewModel.toString()}" )
-        (applicationContext as Application).appComponent.inject(this)
-        Log.e("TAG2", "Data : ${viewModel.toString()}" )
+        viewModel.login(6).observe(this, Observer {
+            Log.e("TAG2", "onCreate: "+it.page )
+        })
 
+
+        //hare we use @Singleton so whenever we use injection,everytime the the same repository instance will created in view model because it's annotated with Singletone
+        (applicationContext as Application).appComponent.inject(this)
         viewModel.login(6).observe(this, Observer {
             Log.e("TAG2", "onCreate: "+it.page )
         })

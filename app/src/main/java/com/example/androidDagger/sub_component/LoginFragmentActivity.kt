@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_login2.*
 import javax.inject.Inject
 
 class LoginFragmentActivity : AppCompatActivity() {
-    private lateinit var loginComponent:LoginComponent
+    lateinit var loginComponent:LoginComponent
     @Inject lateinit var loginViewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,14 +22,14 @@ class LoginFragmentActivity : AppCompatActivity() {
         fragment1.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.container,LoginFragment(loginViewModel))
+                .replace(R.id.container,LoginFragment())
                 .addToBackStack(null)
                 .commit()
         }
         fragment2.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.container,RegistrationFragment(loginViewModel))
+                .replace(R.id.container,RegistrationFragment())
                 .addToBackStack(null)
                 .commit()
         }
